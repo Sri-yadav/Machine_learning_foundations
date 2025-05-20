@@ -17,7 +17,7 @@ A subset of artificial intelligence which is concerned with developing algorithm
 <br>
 
 ### What the machine does? 
-Uses the algorithm to make a statistical model based on the given dataset. Then uses the model to predict and solve a problem.
+Uses the **algorithm** to make a **statistical model** based on the given dataset. Then uses the model to predict and solve a problem.
 
 ---
 
@@ -56,24 +56,43 @@ Uses the algorithm to make a statistical model based on the given dataset. Then 
 
 ---
 
-**Decision boundary** (the hyperplane)  given by,  **wx** - b = 0
+- **Decision boundary** (the hyperplane)  given by,  **wx** - b = 0
             
-A label, y = sign(**wx**-b)
+- A label, y = sign(**wx**-b)
 
-**Model:** f(x) = sign(**w\*x** - b\*)
+- **Model:** f(x) = sign(**w\*x** - b\*)
     
-**w\*** - optimised value of w
-b - optimised value of b
+    **w\*** - optimised value of w
+    b\* - optimised value of b
+
+- Constrains : y<sub>i</sub> (**wx** - b) >= 1
+- Minimize ||**w**|| (so that the margin is large)
+- Eg. , checking if a message is spam or not_spam.
 
 ---
-(understand how it is finding the optimised w and b values)
-(then add code for solving spam and not_spam problem)
+
+
+**Few terms to know :-**
+
+- Kernels
+- Bag of words
+- Outliers
+- Accuracy
+
+---
+
+**Note:** Every classification algorithm distinguish between classes by creating a decision boundary explicitly or implicitly.
+
+- These algorithms are majorly distinuished by :-
+    - Form of the decision boundary (determines the accuracy of the model)
+    - Speed of model building 
+    - Prediction processing time
 
 
 
 ---
 
-# Unsupervised Learning
+# 2. Unsupervised Learning
 
 **Dataset** - collection of unlabelled examples {x<sub>i</sub>}<sup>N</sup><sub>i=1</sub>
 
@@ -82,7 +101,7 @@ b - optimised value of b
 **Goal :** Create a model that takes an input vector and returns something that give information about the structure/pattern of the data. Eg - in clustering, it returns cluster-id.
 
 ---
-# Semi-Supervised Learning
+# 3. Semi-Supervised Learning
 
 **Dataset** - collection of both labelled and unlabeled data
 
@@ -90,13 +109,12 @@ b - optimised value of b
 
 ---
 
-# Reinforcement Learning
+# 4. Reinforcement Learning
 
 In this the machine lives in an **environment**, precieves the **state** of the environment and takes **action** in every states. The different actions taken leads to different rewards. Over time it learns what are the **optimal actions** in a particular state.
 
 **Goal :** To learn a **Policy** (a function that takes feature vector of a state as input and give the optimal action that can be taken in that state as output).
 
----
 
 
 
