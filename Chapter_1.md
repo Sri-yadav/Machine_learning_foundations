@@ -81,12 +81,12 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 ---
 
-**Note:** Every classification algorithm distinguish between classes by creating a decision boundary explicitly or implicitly.
+**Note:** Every classification algorithm distinguish between classes by creating a decision boundary either explicitly or implicitly.
 
-- These algorithms are majorly distinuished by :-
-    - Form of the decision boundary (determines the accuracy of the model)
-    - Speed of model building 
-    - Prediction processing time
+- These algorithms are mainly distinuished by :-
+    - Form of the decision boundary (influences model accuracy)
+    - Speed of model building (training time)
+    - Prediction processing time (inference time)
 
 
 
@@ -115,7 +115,15 @@ In this the machine lives in an **environment**, precieves the **state** of the 
 
 **Goal :** To learn a **Policy** (a function that takes feature vector of a state as input and give the optimal action that can be taken in that state as output).
 
+---
 
+# Why the Model Work on New Data?
+
+Because of statistical generalizations: 
+
+- If the data is random and diverse then the new data will probably lie near it.
+
+PAC learning theory explores this in more detail.
 
 
 
