@@ -3,6 +3,23 @@ marp: true
 theme: gaia
 title: Machine Learning Presentation
 
+style: |
+    .img-center{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        padding-top: 20px;
+    }
+    
+    .img-center img { 
+        max-width: 90%;
+        height: auto;
+        margin: 0;
+        padding-top: 20px; 
+    }
+
 ---
 # Machine Learning  
 
@@ -53,6 +70,15 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 - creates a decision boundary to seperate different categories of data
 
 -  prefer that the hyperplane separates positive examples from negative ones with the largest margin (for better generalization).
+
+---
+
+
+<div class="img-center">
+
+<img src="Images/SVM.png"  />
+
+</div>
 
 ---
 
