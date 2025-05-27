@@ -178,7 +178,7 @@ where $\hat{\theta}$ - sample estimator ;  $S_X$ - sample data ; $\theta$ -  tru
 # Bayes' Rule
 
 - **$Pr(X=x|Y=y) = \frac{Pr(Y=y|X=x) Pr(X=x)}{Pr(Y=y)}$**
-<br>
+
     - $Pr(X=x|Y=y)$ is probability of the random variable X to have a specific value $x$ given that another random variable has a specific value $y$.
 
         $Pr(X=x|Y=y) = \frac{Pr( X=x\;\cap\;Y=y )}{Pr(Y=y)}$
@@ -212,7 +212,7 @@ Given a dataset $S=\{x_1, x_2, x_3,........x_N\}$
 ---
 
 - For each example $x \in S$, apply Bayes' rule but  before  updating $x$ replace the prior by the average of posteriors ($Pr(\theta =\hat{\theta} |X=x))$ from earlier data each time. 
-<br>
+
     Average of posteriors given by, $\frac{1}{N} \sum_{x\in S}Pr(\theta =\hat{\theta} |X=x)$
 
 ---
