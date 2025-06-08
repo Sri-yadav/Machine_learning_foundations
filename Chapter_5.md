@@ -384,7 +384,7 @@ Use the **test set** to assess generalization performance.
 
 ---
 
-# Model Assessment - for Regression model
+# For Regression model
 
 - A good regression model produces predicted values close to actual values.
 - Compare it to a **mean model**, which always predicts the average label. The fit of model should be better than fit of mean model. 
@@ -603,8 +603,3 @@ Each subset is called ***fold***
 - Choose best hyperparameters
 - Retrain using entire training set with selected hyperparameters
 - Evaluate on **test set**
-
-
-
-
-
