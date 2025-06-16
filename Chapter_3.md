@@ -108,7 +108,7 @@ Regression model for :-
 - This gives optimal values - $w$* , $b$*
 
     $$
-    C(w,b) = \frac{1}{N}\sum_{i=1}^N(f{w,b}(x_i)-y_1)^2  
+    C(w,b) = \frac{1}{N}\sum_{i=1}^N(f_{w,b}(x_i)-y_1)^2  
     $$
 
     <br>
@@ -377,7 +377,7 @@ $$
 - Dual form (simplified):
 
 $$
-\max_{\alpha} \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1,j=1}^N \alpha_i \alpha_j y_i y_j (x_i, x_j)
+\max_{\alpha} \sum_{i=1}^{N} \alpha_i - \frac{1}{2} \sum_{i=1,j=1}^N \alpha_i \alpha_j y_i y_j (x_i.x_j)
 $$
 
 Subject to:
@@ -439,7 +439,7 @@ $$
 
 ---
 
-<!-- Slide 4: Cosine Similarity -->
+
 ## Cosine Similarity
 
 $$
@@ -485,199 +485,7 @@ $$
 - Optimizing this gives same $w_x$ as before  
 - kNN approximates a **local linear model**
 
----
-
-# **Code in Python : -**
-
-Using all these five learning models for predicting.
-
-**Using buit-in Iris dataset from Scikit-learn**
-
-- This dataset contains 150 samples of iris flowers.
-
-- Each sample has 4 features:
-    - Sepal length (cm)
-    - Sepal width (cm)
-    - Petal length (cm)
-    - Petal width (cm)
-
----
-
-- Each sample belongs to one of 3 species:
-    - Setosa (label = 0)
-    - Versicolor (label = 1)
-    - Virginica (label = 2)
-
-```python
-from sklearn.datasets import load_iris
-import pandas as pd
-
-# Load dataset
-iris = load_iris()
-
-# Create DataFrame
-df = pd.DataFrame(data=iris.data, columns=iris.feature_names)
-df['target'] = iris.target
-
-print(df.head()) # View dataset
-```
-
----
-
-## Preprocess the data
-```python
-# Split features and labels
-X = df.drop('target', axis=1)  # Feature data
-y = df['target']               # Labels
-
-# Split into training and testing sets
-from sklearn.model_selection import train_test_split
-
-# Split the data (80% for training, 20% for testing)
-X_train, X_test, y_train, y_test = train_test_split(
-    X, y, test_size=0.2, random_state=30)
-```
-
----
-
-## Code to Train and Predict
-
-### 1. Linear Regression
-
-```python
-from sklearn.linear_model import LinearRegression
-from sklearn.metrics import accuracy_score
-import numpy as np
-
-# Create the model
-LR_model = LinearRegression()
-
-# Train the model on training data
-LR_model.fit(X_train, y_train)
-
-# Predict labels for the test set
-y_pred_lin = LR_model.predict(X_test)
-
-# Since it's output is continuous numbers, we round them to nearest class
-y_pred_round = np.round(y_pred_lin).astype(int)
-
-# Clip the predictions to stay within valid label range [0, 2]
-y_pred_clipped = np.clip(y_pred_round, 0, 2)
-
-# Evaluate: Check how many predictions were correct
-acc_lin = accuracy_score(y_test, y_pred_clipped)
-
-print("Predicted labels (rounded):", y_pred_clipped)
-print("Actual labels:", list(y_test))
-print("Accuracy of Linear regression:", acc_lin)
-
-
-
-
-
-```
-
----
-
-### 2. Logistic Regression
-
-```python
-from sklearn.linear_model import LogisticRegression
-from sklearn.metrics import accuracy_score, classification_report
-
-# Create the model
-log_reg = LogisticRegression(
-    max_iter=200,      # allow enough iterations to converge
-)
-
-# Train (fit) on the training data
-log_reg.fit(X_train, y_train)
-
-# Predict labels for the test set
-y_pred_log = log_reg.predict(X_test)
-
-# Evaluate
-acc_log = accuracy_score(y_test, y_pred_log)
-print("Accuracy of Logistic-Regression :", acc_log)
-
-# See a per-class breakdown
-print(classification_report(y_test, y_pred_log, target_names=iris.target_names))
-```
-
----
-
-### 3. Decision Tree
-
-```python
-from sklearn.tree import DecisionTreeClassifier, plot_tree
-from sklearn.metrics import accuracy_score, classification_report
-
-# Create the model
-dec_tree = DecisionTreeClassifier(
-    criterion="gini",   # or "entropy"
-    max_depth=None,     # let it grow until all leaves are pure or empty
-    random_state=30     # reproducible splits
-)
-
-# Fit (train) on the training data
-dec_tree.fit(X_train, y_train)
-
-# Predict labels for the test set
-y_pred_dt = dec_tree.predict(X_test)
-
-# Evaluate
-acc_dt = accuracy_score(y_test, y_pred_dt)
-print("Accuracy ofDecision-Tree:", acc_dt)
-print(classification_report(y_test, y_pred_dt, target_names=iris.target_names))
-
-```
-
----
-
-
-### 4. Support Vector Machine
-
-```python
-from sklearn.svm import SVC
-
-# Create the model
-svm = SVC(kernel='linear', C=1.0, random_state=30)
-
-# Train the model
-svm.fit(X_train, y_train)
-
-# Predict on the test data
-y_pred_svm = svm.predict(X_test)
-
-# Evaluate
-acc_svm = accuracy_score(y_test, y_pred_svm)
-print("Accuracy of SVM :", acc_svm)
-print(classification_report(y_test, y_pred_svm, target_names=iris.target_names))
-```
-
----
-
-## k-Nearest Neighbors
-
-```python
-from sklearn.neighbors import KNeighborsClassifier
-
-# Create the model
-k_nn = KNeighborsClassifier(n_neighbors=5)  # 5 nearest neighbors
-
-# Train the model (just memorizes training data)
-k_nn.fit(X_train, y_train)
-
-# Predict on test set
-y_pred_k_nn = k_nn.predict(X_test)
-
-# Evaluate
-acc_k_nn = accuracy_score(y_test, y_pred_k_nn)
-print("Accuracy of k-Nearest Neighbors :", acc_k_nn)
-print(classification_report(y_test, y_pred_k_nn, target_names=iris.target_names))
-```
-
-
+*(Using all these five learning models for predicting - refer to next file)*
 
 
 
