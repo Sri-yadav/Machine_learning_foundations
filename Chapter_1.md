@@ -137,8 +137,8 @@ $$
 
 # 4. Reinforcement Learning
 
-In this the machine lives in an **environment**, precieves the **state** of the environment and takes **action** in every states. The different actions taken leads to different **rewards**. Over time it learns what are the **optimal actions** in a particular state.
-Eg. Solving a maze problem 
+In this the machine lives in an **environment (E)**, precieves the **state(S)** of the environment and takes **action (A)** in every states. The different actions taken leads to different **rewards (R)**. Over time it learns what are the **optimal actions** in a particular state. $E=(S,A,P,R,γ)$
+Eg. Solving a maze problem, 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:300](/Images/Maze_1.png) 
 **Goal :** To learn a **Policy** (a function that takes feature vector of a state as input and give the optimal action that can be taken in that state as output).
 
@@ -150,7 +150,7 @@ Because of **statistical generalizations**:
 
 - If the data is random and representative then we can make statements or predictions about the whole population or future data.
 
-PAC learning theory explores this in more detail.
+PAC learning theory explores this in more detail. 
 
 
 
