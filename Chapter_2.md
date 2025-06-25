@@ -108,16 +108,18 @@ print(f2_grad)
 ---
 
 # Random Variable
+A variable whose value is decided by a random outcome. 
 
 **Two types : -**
-- Discrete random variable  
+- **Discrete random variable** 
      - takes only countable number of distinct values.
      - its probability distribution given by- pmf (probability mass function) which is basically list of probablities of each possible value
-    - probability of each value >= 0, sum of probabilities of each value=1
+    - probability of each value $\ge$ 0, 
+    sum of probabilities of each value $=1$
 
 ---
 
-- Continuous random variable
+- **Continuous random variable**
     - takes infinite (uncountable) number of possible value
     - probability distribution given by- pdf (probability density function)
     - Codomain of pdf is non-negative & area under the curve = 1
@@ -129,21 +131,26 @@ print(f2_grad)
 Weighted average of all possible values, weighted by their probablities. Also called **mean , average** or **expected value**. Often represented by $\mu$ .
 
 - **For discrete random variable**
- Let X be a random variable , possible values - x<sub>1</sub>, x<sub>2</sub>, x<sub>3</sub> . . . . . x<sub>n</sub> and let their corresponding probablities be p<sub>1</sub>,p<sub>2</sub>,p<sub>3</sub>, . . . . p<sub>n</sub> 
+ Let X be a random variable , possible values - $x_1, x_2, x_3 . . . . . x_n$ and let their corresponding probablities be $p_1,p_2,p_3, . . . . p_n$ 
 
-    **E[x]=  $\sum_{i=1}^{n}$ x<sub>i</sub> p<sub>i</sub>**  
+    $$
+    E[x]=  \sum_{i=1}^{n} x_i p_i
+    $$  
 
 ---
 
 - **For continuous random variable**
 
-    **f<sub>x</sub>** - pdf of random variable X
+    $$
+    f_x - \text{pdf of random variable X}
+    $$
+    $$
+    E[X] = \int_R x f_x(x) dx
+    $$  
 
-    **E[X] = $\int_R^{}$ x f<sub>x</sub>(x) dx**  
-
-    For a pdf,  **$\int_R^{}$ f<sub>x</sub>(x) dx = 1** 
+    For a pdf,  $\int_R f_x(x) dx = 1$
 <br>
-    - Most of the time we dont know f<sub>x</sub> .
+    - Most of the time we don't know $f_x$ .
 
 ---
 
@@ -164,14 +171,14 @@ Given by,  $\sigma$ = $\sqrt{E(X- \mu )^2}$
 
 # Unbiased estimators 
 
-- a stastical estimator whose expected value is equal to the true value of the parameter it is expecting.
-
 - an estimator is a rule or function that we apply to sample data to estimate an unknown parameter
+
+- an estimator whose expected value is equal to the true value of the parameter it is expecting.
 
 - $\hat{\theta} (S_X)$ is unbiased estimator if   $E[\hat{\theta} (S_X)] =\theta$
 where $\hat{\theta}$ - sample estimator ;  $S_X$ - sample data ; $\theta$ -  true value 
 
-- Unbiased estimator of an unknown E[X] is given by $\frac{1}{N} \sum_{i=1}^N x_i$ (given the outcomes are independent and identically distributed) and is called as Sample Mean.
+- Unbiased estimator of an unknown $E[X]$ is given by $\frac{1}{N} \sum_{i=1}^N x_i$ (given the outcomes are independent and identically distributed) and is called as Sample Mean.
 
 ---
 
@@ -182,6 +189,21 @@ where $\hat{\theta}$ - sample estimator ;  $S_X$ - sample data ; $\theta$ -  tru
     - $Pr(X=x|Y=y)$ is probability of the random variable X to have a specific value $x$ given that another random variable has a specific value $y$.
 
         $Pr(X=x|Y=y) = \frac{Pr( X=x\;\cap\;Y=y )}{Pr(Y=y)}$
+
+---
+
+- Eg. Disease  $- 0.1\% \implies Pr(Disease) = 0.001$ , 
+    Test accuracy $-95\% \implies Pr(Positive|Disease) = 0.95$ ,
+    $$
+    Pr(Disease|Positive) = \frac {Pr(Positive|Disease) Pr(Disease)} {Pr(Positive)} =0.0187 =1.87\% 
+    $$
+
+**Few terms : -**
+- Prior
+- Posterior
+- Likelihood
+- Evidence
+
 
 ---
 
@@ -224,10 +246,7 @@ $\theta^* = arg\;max \prod_{i=1}^N Pr(\theta = \hat{\theta} | X=x)$
 
 Out of all possible values of $\hat{\theta}$ choosing the one that maximaizes the product of posteriors over all data points. 
 
-<br>
-<br>
 
-**Gradient decent** (will be discussed later)
 
 ---
 

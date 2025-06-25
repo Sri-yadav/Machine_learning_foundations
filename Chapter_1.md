@@ -2,6 +2,7 @@
 marp: true
 theme: gaia
 title: Machine Learning Presentation
+math: mathjax
 
 style: |
     .img-center{
@@ -21,20 +22,34 @@ style: |
     }
 
 ---
+# Can we teach machines to learn ?
+
+#### Problem : Detecting Spam Emails
+
+**Traditional Programming**
+
+- writing explicit rules for recognizing every possible spam message
+
+- Eg. If the message contains - *"win money", "free offer"*, etc.
+
+**Issues**
+- not feasiable if too many and complex rules, easy to bypass, no learning, poor generalization
+---
+
 # Machine Learning  
 
-A subset of artificial intelligence which is concerned with developing algorithms and models that can help system to find patterns in the given data and make predications without giving detailed instructions or rules for every possible situation.
+Machine learning is a subfield of **artificial intelligence** that focuses on developing **algorithms** that enable systems to **learn patterns** and make decisions from data **without being explicitly programmed**.
 
 ---
 
 ## What is needed ?
-1. Dataset 
-2. Algorithm
+1. **Dataset** 
+2. **Algorithm**
 
 <br>
 
 ### What the machine does? 
-Uses the **algorithm** to make a **statistical model** based on the given dataset. Then uses the model to predict and solve a problem.
+Uses the **algorithm** to make a **model** based on the given dataset. Then uses the model to predict and solve a problem.
 
 ---
 
@@ -44,6 +59,10 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 # &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Types of Machine Learning
 
+$$
+\text{(based on the availability and nature of the data)}
+$$
+
 
 
 ---
@@ -52,8 +71,12 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 **Dataset** - collection of labeled examples {(x<sub>i</sub>,y<sub>i</sub> )}<sup>N</sup><sub>i=1</sub>
 
-**x<sub>i</sub>** - feature vector
-**y<sub>i</sub>** - label
+**x<sub>i</sub>** - **feature vector** 
+$$
+x_i=[x^{(1)}, x^{(2)}, x^{(3)},....x^{(D)}]
+$$
+
+**y<sub>i</sub>** - **label**
 
 **Goal :** Produce a model that takes a feature vector as input and output the label for it.
 
@@ -65,56 +88,33 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 - labels - classes
 
-- requires positive label has +1 value & negative label has -1 value
+- requires positive examples - labelled as +1 (class of interest) & negative examples - labelled as -1 (the other class)
 
-- creates a decision boundary to seperate different categories of data
+- creates a decision boundary to seperate the two categories of data
 
--  prefer that the hyperplane separates positive examples from negative ones with the largest margin (for better generalization).
-
----
-
-
-<div class="img-center">
-
-<img src="Images/SVM.png"  />
-
-</div>
+-  prefer that the hyperplane separates positive examples from negative ones with the **largest margin** (for better generalization and making the model more roboust to noise).
 
 ---
 
-- **Decision boundary** (the hyperplane)  given by,  **wx** - b = 0
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![h:600](/Images/SVM.png)
+
+---
+
+- **Decision boundary** (the hyperplane)  given by,
+$$
+\mathbf{wx} - b = 0
+$$
             
-- A label, y = sign(**wx**-b)
+- A label, $y = sign(\mathbf{wx}-b)$
 
-- **Model:** f(x) = sign(**w\*x** - b\*)
+- **Model:** $f(x) = sign(\mathbf{w^*x}-b^*)$
     
-    **w\*** - optimised value of w
-    b\* - optimised value of b
+    $w^*$ - optimised value of w
+    $b^*$ - optimised value of b
 
-- Constrains : y<sub>i</sub> (**wx** - b) >= 1
-- Minimize ||**w**|| (so that the margin is large)
+- Constrains : $y_i (\mathbf{wx} - b) \ge 1$
+- Minimize $||\mathbf{w}||$ (so that the margin is large)
 - Eg. , checking if a message is spam or not_spam.
-
----
-
-
-**Few terms to know :-**
-
-- Kernels
-- Bag of words
-- Outliers
-- Accuracy
-
----
-
-**Note:** Every classification algorithm distinguish between classes by creating a decision boundary either explicitly or implicitly.
-
-- These algorithms are mainly distinuished by :-
-    - Form of the decision boundary (influences model accuracy)
-    - Speed of model building (training time)
-    - Prediction processing time (inference time)
-
-
 
 ---
 
@@ -124,7 +124,7 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 **x<sub>i</sub>** - feature vector
 
-**Goal :** Create a model that takes an input vector and returns something that give information about the structure/pattern of the data. Eg - in clustering, it returns cluster-id.
+**Goal :** Create a model that takes an input vector and returns something that give information about the structure/pattern of the data. Eg - emails without spam and not spam labels.
 
 ---
 # 3. Semi-Supervised Learning
@@ -137,21 +137,20 @@ Uses the **algorithm** to make a **statistical model** based on the given datase
 
 # 4. Reinforcement Learning
 
-In this the machine lives in an **environment**, precieves the **state** of the environment and takes **action** in every states. The different actions taken leads to different rewards. Over time it learns what are the **optimal actions** in a particular state.
-
+In this the machine lives in an **environment**, precieves the **state** of the environment and takes **action** in every states. The different actions taken leads to different **rewards**. Over time it learns what are the **optimal actions** in a particular state.
+Eg. Solving a maze problem 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:300](/Images/Maze_1.png) 
 **Goal :** To learn a **Policy** (a function that takes feature vector of a state as input and give the optimal action that can be taken in that state as output).
 
 ---
 
 # Why the Model Work on New Data?
 
-Because of statistical generalizations: 
+Because of **statistical generalizations**: 
 
-- If the data is random and diverse then the new data will probably lie near it.
+- If the data is random and representative then we can make statements or predictions about the whole population or future data.
 
 PAC learning theory explores this in more detail.
-
-
 
 
 
