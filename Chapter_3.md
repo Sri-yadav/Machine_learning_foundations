@@ -46,7 +46,7 @@ A learning algorithm that learns a model which is a linear combination of featur
 
 - **Note**:-
     - It predicts real-values not classes.
-    - Unlike SVM it tries to decrease the margin.
+    - Unlike SVM it tries to decrease the error.
 
 **Visualization**
 
@@ -55,11 +55,11 @@ A learning algorithm that learns a model which is a linear combination of featur
 ---
 
 Regression model for :-
-- 1D - a line
-- 2D - a plane
-- D-dimensions - a hyperplane od D-dimensions
+- $1D$ - a line
+- $2D$ - a plane
+- $D$ - dimensions - a hyperplane of $D$-dimensions
 
-**Note:** It is different from SVM (it has hyperplane of D - 1 dimensions).
+**Note:** It is different from SVM (which has hyperplane of $D - 1$ dimensions).
 
 
 
@@ -67,15 +67,17 @@ Regression model for :-
 
 ## Solution
 
-- Objective function - function that we minimize or maximize.
+- **Objective function** - function that we minimize or maximize.
 
-- We want to find the optimal values of $w$ and $b$ by minimising the prediction error. It is given by the cost function (or empirical risk).
+- We want to find the optimal values of $w$ and $b$ by minimising the prediction error. It is given by the **cost function** (or empirical risk).
 
-    $\frac{1}{N}\sum_{i=1}^N(f{w,b}(x_i)-y_1)^2$
+    $$
+    \frac{1}{N}\sum_{i=1}^N(f{w,b}(x_i)-y_1)^2
+    $$
 
     where $(f{w,b}(x_i)-y_1)^2$ is called the loss function (or squared error loss)
 
-- Loss function is a measure of how wrong the predicted value is from the real value (i.e penalty for misclassification).
+- **Loss function** is a measure of how wrong the predicted value is from the real value (i.e penalty for misclassification).
 
 
 
@@ -98,7 +100,7 @@ Regression model for :-
 
 - **Overfitting** (high accuracy on training data, poor performance on unseen data)
 
-![h:400](/Images/Overfitting.png)
+![h:400](/Images/Overfitting.png) ![w:500, h:400](/Images/Linear%20regression%201D.png)
 
 ---
 
@@ -194,7 +196,7 @@ $$
 
 # 3. Decision Tree Learning
 
-- A learning algorithm that makes a non-parametric model given by a decision tree to predict which class the input feature vector belongs to.
+- A learning algorithm that makes a **non-parametric model** given by a decision tree to predict which class the input feature vector belongs to.
 - **Decision Tree**: 
     - an acyclic graph
     - where at each node of the graph a specific feature $j$ of the feature vector is examined.
