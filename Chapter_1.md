@@ -95,8 +95,8 @@ $$
 -  prefer that the hyperplane separates positive examples from negative ones with the **largest margin** (for better generalization and making the model more roboust to noise).
 
 ---
-
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![h:600](/Images/SVM.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:550](/Images/SVM.png) ![w:200, h:300](/Images/svm_b_2.png)
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![h:240](/Images/svm_a_1.png) ![h:240](/Images/svm_d_1.png)
 
 ---
 
@@ -137,9 +137,22 @@ $$
 
 # 4. Reinforcement Learning
 
-In this the machine lives in an **environment (E)**, precieves the **state(S)** of the environment and takes **action (A)** in every states. The different actions taken leads to different **rewards (R)**. Over time it learns what are the **optimal actions** in a particular state. $E=(S,A,P,R,γ)$
-Eg. Solving a maze problem, 
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:300](/Images/Maze_1.png) 
+**Dataset :** No fixed data, the **agent** makes its own dataset.
+
+In this the machine lives in an **environment $(E)$** , precieves the **state$(S)$** of the environment and takes **action $(A)$** in every states. The different actions taken leads to different **rewards $(R)$**. Over time it learns what are the **optimal actions** in a particular state. 
+
+$$
+E=(S,A,P,R,γ) \text{ }
+$$
+where E - Environment, A - action, P- transition function,
+R - rewards, $\gamma$ - reward factor
+
+---
+
+Eg. Solving a maze problem,  
+ 
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:310](/Images/Maze_1.png) 
+
 **Goal :** To learn a **Policy** (a function that takes feature vector of a state as input and give the optimal action that can be taken in that state as output).
 
 ---
@@ -150,7 +163,8 @@ Because of **statistical generalizations**:
 
 - If the data is random and representative then we can make statements or predictions about the whole population or future data.
 
-PAC learning theory explores this in more detail. 
+**PAC learning theory** explores this in more detail. 
+
 
 
 
