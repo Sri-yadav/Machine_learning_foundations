@@ -5,50 +5,53 @@ title: Problems and Solutions
 math: mathjax
 
 ---
-
-## Linear Regression  
-
-- Linear regression fits a straight line to data.
-- But what if the data is not linear?
+# Polynomial Regression
+ **Linear Regression** (studied earlier)
+- Linear regression **fits a straight line to data**.
+- **But what if the data is not linear?**
 - Polynomial regression is one option:
   $$
-  y = w_1x_i + w_2x_i^2 + b
+  \mathbf{y = w_1x_i + w_2x_i^2 + b}
   $$
 
 ---
+**Polynomial Regression**
 
-## Polynomial Regression
+- uses polynomial equation as a model
+- Eg. Quaditic equation,
+  $$
+  y=w_1x_i+w_2x_i^2+b
+  $$
 
-- Fit parameters $w_1, w_2, b$ using:
+  tries to fix a quadratic line by fitting parameters $w_1, w_2, b$ using:
   - Mean squared error
   - Gradient descent
-- Works well for low-dimensional data
+- For 1 or 2-dimensional space - easy to verify
 - But for high-dimensional input ($D > 3$):
-  - Hard to choose the right polynomial
-  - Difficult to visualize
+  - Hard to choose the right polynomial (as it is difficult to visualize)
 
 ---
 
 # Kernel Regression
 
 - **Non-parametric method**
-  - No parameters to learn
-- Model depends entirely on data
-- Similar to **kNN (k-Nearest Neighbors)**
+- Model depends entirely on data (like in **kNN**)
 
 **Prediction function**: $f(x) = \frac{1}{N} \sum_{i=1}^{N} w_i y_i$
 
 $$ 
-\text{where } w_i = \frac{k(x_i - x, b)}{\sum_{k=1}^{N} k(x_k - x, b)}
+\text{where } w_i = \frac{k(\frac{x_i - x}{b})}{\sum_{k=1}^{N} k(\frac{x_k - x} {b})}
 $$
-
+$$
+k() - \text{kernel}, b - \text{bandwidth (a hyperparameter)}
+$$
 
 ---
 
 ## What is a Kernel?
 
-- A kernel measures **similarity**
-- Commonly used: **Gaussian kernel**
+- A function that measures **similarity** between two data points.
+- Commonly used kernel function : **Gaussian kernel**
 $$
 k(z) = \frac{1}{\sqrt{2\pi}} \exp\left(-\frac{z^2}{2}\right)
 $$
@@ -58,12 +61,14 @@ $$
 
 ## Hyperparameter $b$
 
-- $b$ controls the **bandwidth** of the kernel
-- Affects how local or global the model is
-- Tuned using a **validation set**
-  - Try different $b$ values
-  - Pick the one that minimizes validation error
-
+- $b$ - **bandwidth** of the kernel, affects how local or global the model is
+- **Large b : -**
+  - makes the **kernel wider (flatter)**,
+  - more neighbors get significant weight -> smoother curve
+- **Small b : -**
+  - makes the kernel narrower (sharper peak)
+  - only nearby points get high weight -> more wiggly curve
+- Tuned using a **validation set** (Pick the one that minimizes validation error)
 ---
 
 ## Effect of $b$ on Fit
@@ -139,14 +144,13 @@ $$
 
 ---
 
-## Interpreting Certainty
-
-### Logistic Regression:
+### Interpreting Certainty
+**Logistic Regression :**
 - Returns probability $\in (0, 1)$
-- Higher value → more certain
+- Higher value → more certain  
 
-### SVM:
-- Returns a **distance to decision boundary**:
+**SVM:**
+- Returns a **distance to decision boundary** :
 $$
 d = \frac{w \cdot x + b}{\|w\|}
 $$
@@ -222,7 +226,7 @@ Detecting normal traffic in a secure network
       $$
     - If this **likelihood > threshold** → belongs to the class  
     - Otherwise → **classified as an outlier**
-    - Threshold is chosen based on: Experimental tuning & Domain knowledge
+    - Threshold is chosen based on: Experimental tuning.
 
 ---
 
