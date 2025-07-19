@@ -124,7 +124,8 @@ $$
 
 **x<sub>i</sub>** - feature vector
 
-**Goal :** Create a model that takes an input vector and returns something that give information about the structure/pattern of the data. Eg - emails without spam and not spam labels.
+**Goal :** Create a model that takes an input vector and returns something that give information about the structure/pattern of the data. 
+**Eg -** emails without spam and not spam labels, recommendations of videos and songs.
 
 ---
 # 3. Semi-Supervised Learning
@@ -132,6 +133,7 @@ $$
 **Dataset** - collection of both labelled and unlabeled data
 
 **Goal:** Same as Supervised learning. The unlabelled data is used to improve the model's understanding of the structure of the data distribution.
+**Eg -** a combination of both - emails with spam and not_spam labels & without labels (most of our data is unlabeled).
 
 ---
 
@@ -144,12 +146,12 @@ In this the machine lives in an **environment $(E)$** , precieves the **state$(S
 $$
 E=(S,A,P,R,γ) \text{ }
 $$
-where E - Environment, A - action, P- transition function,
-R - rewards, $\gamma$ - reward factor
+where **E -** Environment, **A -** action, **P-** transition function,
+**R -** rewards, **$\boldsymbol{\gamma}$** - reward factor
 
 ---
 
-Eg. Solving a maze problem,  
+**Eg.** Solving a maze problem,  
  
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;![w:310](/Images/Maze_1.png) 
 
@@ -163,7 +165,7 @@ Because of **statistical generalizations**:
 
 - If the data is random and representative then we can make statements or predictions about the whole population or future data.
 
-**PAC learning theory** explores this in more detail. 
+**PAC learning theory** explores this in more detail (but due to the limitations (assumptions it make) we don't use it now a days). 
 
 
 
