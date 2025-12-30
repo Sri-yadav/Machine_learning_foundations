@@ -22,7 +22,7 @@ This project is based on the book [The Hundered Page Machine Learning Book](http
 10. Other forms of learning, [link to the notebook](/10.%20Other_forms_of_learning.ipynb)
 11. Conclusion, [link to the notebook](/11.%20Conclusion.ipynb)
 
-
+**Note:** Presentation-style markdown summaries are available in the `slides` branch.
 
 ## Usage
 
