@@ -1,6 +1,6 @@
 ## Name
 
-ML Slides
+Machine_leraning_foundations
 
 ## Description
 
